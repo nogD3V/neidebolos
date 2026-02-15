@@ -22,7 +22,7 @@ const CartDrawer = () => {
       )
       .join("\n");
 
-    const message = `🎂 *Pedido - Neide Bolos*\n\n👤 Cliente: ${customerName}\n\n📋 *Itens:*\n${itemsList}\n\n💰 *Total: R$ ${totalPrice.toFixed(2).replace(".", ",")}*\n\nObrigado! 😊`;
+    const message = `*Pedido - Neide Bolos*\n\nCliente: ${customerName}\n\n *Itens:*\n${itemsList}\n\n*Total: R$ ${totalPrice.toFixed(2).replace(".", ",")}*\n\nObrigado!`;
 
     const encoded = encodeURIComponent(message);
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, "_blank");

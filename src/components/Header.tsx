@@ -14,8 +14,10 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        {/* Logo */}
+      {/* Adicionei 'relative' aqui para servir de referência ao centro */}
+      <div className="container mx-auto px-4 h-16 flex items-center justify-between relative">
+        
+        {/* Logo (Fica na esquerda pelo justify-between) */}
         <button onClick={() => scrollTo("hero")} className="flex items-center gap-2 group">
           <img src={neideLogo} alt="Neide Bolos" className="h-10 w-10 rounded-full object-cover" />
           <span className="font-display text-xl font-bold text-foreground group-hover:text-primary transition-colors">
@@ -23,8 +25,9 @@ const Header = () => {
           </span>
         </button>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        {/* Desktop Nav (CENTRADO NA FORÇA BRUTA) */}
+        {/* 'absolute left-1/2 -translate-x-1/2' coloca ele matematicamente no centro da barra */}
+        <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
           {[
             { label: "Cardápio", id: "cardapio" },
             { label: "Sobre", id: "sobre" },
@@ -40,7 +43,7 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* Cart + Mobile Menu */}
+        {/* Cart + Mobile Menu (Fica na direita pelo justify-between) */}
         <div className="flex items-center gap-3">
           <button
             onClick={() => setIsOpen(true)}
